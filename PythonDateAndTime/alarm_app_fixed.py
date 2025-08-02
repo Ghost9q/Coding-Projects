@@ -3,14 +3,11 @@ import time
 import datetime
 import pygame
 
-# ------------------------------
 # Utility functions
-# ------------------------------
 
 def play_music(file_path: str):
     """Play *and keep looping* the given music file until stop() is called."""
     pygame.mixer.init()
-    # loops = -1 tells pygame to play the track indefinitely
     pygame.mixer.music.load(file_path)
     pygame.mixer.music.play(loops=-1)
 
@@ -24,9 +21,7 @@ def wait_for_stop():
             break
 
 
-# ------------------------------
 # Core alarm logic
-# ------------------------------
 
 def set_alarm(alarm_time: str, alarm_sound: str = "clockAlarm.mp3"):
     """Continuously check the time and trigger the alarm when it matches."""
@@ -43,18 +38,16 @@ def set_alarm(alarm_time: str, alarm_sound: str = "clockAlarm.mp3"):
             break  # exit the alarm loop once music is stopped
 
 
-# ------------------------------
 # Helper to compute future times cleanly using timedelta
-# ------------------------------
+
 
 def time_after(seconds: int = 0, minutes: int = 0, hours: int = 0) -> str:
     target = datetime.datetime.now() + datetime.timedelta(hours=hours, minutes=minutes, seconds=seconds)
     return target.strftime("%H:%M:%S")
 
 
-# ------------------------------
 # Main menu
-# ------------------------------
+
 
 def main():
     menu = (
