@@ -2,7 +2,8 @@ import requests
 from PIL import Image
 from io import BytesIO
 base_url = 'http://api.weatherapi.com/v1'
-key = '2dbe97d9d79640f0ae095014251807'
+# create an account at the weather api website to otain an api key then copy and paste your key below.
+key = 'enter your key here'
 def current_weather(city):
     response = requests.get(f'{base_url}/current.json?key={key}&q={city}')
     if response.status_code == 200:
@@ -23,3 +24,4 @@ def current_weather(city):
     else:
         return 'failed to retrieve data. Please get new api key of check your internet connection.'
 weather_data = current_weather('Frankfurt')
+
