@@ -23,5 +23,7 @@ def current_weather(city):
         return weather_data
     else:
         return 'failed to retrieve data. Please get new api key of check your internet connection.'
-weather_data = current_weather('Frankfurt')
+city = input('Enter the name of the city: ')
+weather_data = current_weather(city)
+
 
